@@ -30,10 +30,10 @@
             </form>
 
             <nav class="nav-links" aria-label="Navigation principale">
-                <a href="/events">Events</a>
-                <a href="/perfect-vibemate">Perfect VibeMate</a>
-                <a href="/a-propos">À propos</a>
-                <a class="nav-account" href="/compte">Compte</a>
+                <a href="<?php echo esc_url(home_url('/events')); ?>">Events</a>
+                <a href="<?php echo esc_url(home_url('/perfect-vibemate')); ?>">Perfect VibeMate</a>
+                <a href="<?php echo esc_url(home_url('/a-propos')); ?>">À propos</a>
+                <a class="nav-account" href="<?php echo esc_url(home_url('/compte')); ?>">Compte</a>
             </nav>
         </div>
     </header>
