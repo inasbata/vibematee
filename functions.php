@@ -14,7 +14,12 @@ add_action('after_setup_theme', 'theme_setup');
 // Enqueue styles and scripts
 function theme_scripts()
 {
-    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
+    // Typo Brother 1816 (Adobe Fonts)
+    wp_enqueue_style('typekit-brother-1816', 'https://use.typekit.net/dda4pew.css', array(), null);
+
+    // Styles du thème (dépendent de la typo)
+    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array('typekit-brother-1816'), '1.0.0');
+
     wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_scripts');
