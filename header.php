@@ -14,9 +14,7 @@
         <div class="navbar">
             <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Accueil VibeMate">
                 <span class="brand-mark" aria-hidden="true">
-                    <svg viewBox="0 0 48 48" role="presentation" focusable="false">
-                        <path d="M6 10.5c0-1.1.9-2 2-2h7.4c1 0 1.8.7 2 1.6l2.3 10.3c.1.6 1 .6 1.1 0l2-8.7c.2-.9 1-1.6 2-1.6h7.7c.9 0 1.7.6 1.9 1.5l5 19c.3 1.3-.6 2.6-1.9 2.6H31c-.9 0-1.7-.6-1.9-1.5l-2.3-9.4c-.1-.5-.9-.5-1 0l-2.3 9.4c-.2.9-1 1.5-1.9 1.5h-4.4c-.9 0-1.7-.6-1.9-1.5L6.3 13.2c-.2-.9.5-1.7 1.5-1.7z" fill="currentColor"/>
-                    </svg>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/image/logo V blanc.svg" alt="VibeMate Logo" class="brand-logo">
                 </span>
             </a>
 

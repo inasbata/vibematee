@@ -5,49 +5,62 @@
 get_header();
 ?>
 
+<!-- Header visuel Events -->
+<section class="events-hero">
+    <div class="hero-image-wrapper">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/image/events-header.jpg.png" alt="Bannière des événements" class="hero-image">
+        <div class="hero-logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/image/logoblanc-vibemate.svg" alt="VibeMate Logo" class="hero-logo-img">
+        </div>
+    </div>
+</section>
+
+<!-- Section Notre concept -->
+<section class="concept-section-fullwidth">
+    <div class="container-fluid px-4 px-lg-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="concept-title mb-2">Notre concept</h2>
+                <p class="concept-subtitle text-white mb-4">Connecte-toi à ceux qui vibrent comme toi!</p>
+            </div>
+        </div>
+        <div class="row concept-cards-row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="concept-box">
+                    <div class="concept-number">1</div>
+                    <p class="concept-text">Mettre en lien des passionnés de musique pour partager concerts et festivals en Belgique selon leurs goûts.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="concept-box">
+                    <div class="concept-number">2</div>
+                    <p class="concept-text">Éviter que des personnes soient seules ou renoncent à participer à des événements.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="concept-box">
+                    <div class="concept-number">3</div>
+                    <p class="concept-text">Outil d'échange et de rencontre pour les jeunes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="concept-box">
+                    <div class="concept-number">4</div>
+                    <p class="concept-text">Offrir des événements personnalisés et susceptibles de plaire à chaque utilisateur</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <a href="#" class="concept-link">Lire plus</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Events avec background dégradé -->
 <div class="events-page py-5">
     <div class="container-fluid px-4 px-lg-5">
-        <!-- Section Notre concept -->
-        <section class="concept-section mb-5">
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h2 class="concept-title mb-2">Notre concept</h2>
-                    <p class="concept-subtitle text-white mb-4">Connecte-toi à ceux qui vibrent comme toi!</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="concept-box">
-                        <div class="concept-number">1</div>
-                        <p class="concept-text">Mettre en lien des passionnés de musique pour partager concerts et festivals en Belgique selon leurs goûts.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="concept-box">
-                        <div class="concept-number">2</div>
-                        <p class="concept-text">Éviter que des personnes soient seules ou renoncent à participer à des événements.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="concept-box">
-                        <div class="concept-number">3</div>
-                        <p class="concept-text">Outil d'échange et de rencontre pour les jeunes.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="concept-box">
-                        <div class="concept-number">4</div>
-                        <p class="concept-text">Offrir des événements personnalisés et susceptibles de plaire à chaque utilisateur</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12">
-                    <a href="#" class="concept-link">Lire plus</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Section Les meilleures tendances -->
         <section class="events-section mb-5">
             <div class="row mb-4">
