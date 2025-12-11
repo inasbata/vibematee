@@ -12,7 +12,7 @@
     
     <header class="site-header">
         <div class="navbar">
-            <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Accueil VibeMate">
+            <a class="brand" href="<?php echo esc_url(home_url('/events')); ?>" aria-label="Accueil VibeMate">
                 <span class="brand-mark" aria-hidden="true">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/image/logo V blanc.svg" alt="VibeMate Logo" class="brand-logo">
                 </span>
