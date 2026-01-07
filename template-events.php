@@ -1,9 +1,10 @@
 <?php
 /**
- * Template Name: Events
+ * Template Name: Events Template
  */
 get_header();
 ?>
+
 <!-- Page Events -->
 <div class="events-page-new">
     <div class="container-fluid">
@@ -96,7 +97,6 @@ get_header();
         </div>
     </div>
 </div>
-
 
 <?php
 get_footer();
