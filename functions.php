@@ -14,27 +14,108 @@ add_action('after_setup_theme', 'theme_setup');
 // Enqueue styles and scripts
 function theme_scripts()
 {
+    // Bootstrap CSS
+    wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), '5.3.3');
+
     // Typo Brother 1816 (Adobe Fonts)
     wp_enqueue_style('typekit-brother-1816', 'https://use.typekit.net/dda4pew.css', array(), null);
 
-    // Styles du thème (dépendent de la typo)
-    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array('typekit-brother-1816'), '1.0.0');
+    // Styles du thème (dépendent de Bootstrap et la typo)
+    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/main.css', array('bootstrap', 'typekit-brother-1816'), '1.0.0');
 
-    wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
+    // Styles front/register (page d'accueil + template login + template register)
+    if (is_front_page() || is_page_template('template-login.php') || is_page_template('template-register.php')) {
+        wp_enqueue_style('front-page-style', get_template_directory_uri() . '/assets/css/front-page.css', array('theme-style'), '1.0.1');
+    }
+
+    // Bootstrap JS
+    wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '5.3.3', true);
+
+    wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array('bootstrap'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_scripts');
+
+// Enqueue questionnaire assets when the questionnaire template is used
+function enqueue_questionnaire_assets()
+{
+    if (is_page_template('template-questionnaire.php')) {
+        wp_enqueue_style('questionnaire-style', get_template_directory_uri() . '/assets/css/questionnaire.css', array(), '1.0.0');
+        wp_enqueue_script('questionnaire-script', get_template_directory_uri() . '/assets/js/questionnaire.js', array(), '1.0.0', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_questionnaire_assets');
+
+// Handle questionnaire submission
+function handle_questionnaire_submission()
+{
+    if (isset($_POST['questionnaire_submit']) && isset($_POST['questionnaire_nonce']) && wp_verify_nonce($_POST['questionnaire_nonce'], 'questionnaire_action')) {
+        $genres = isset($_POST['genres']) && is_array($_POST['genres']) ? array_map('sanitize_text_field', $_POST['genres']) : array();
+        $age = isset($_POST['age_range']) ? sanitize_text_field($_POST['age_range']) : '';
+        $location = isset($_POST['location']) ? sanitize_text_field($_POST['location']) : '';
+        $interests = isset($_POST['interests']) && is_array($_POST['interests']) ? array_map('sanitize_text_field', $_POST['interests']) : array();
+
+        $data = array(
+            'genres' => $genres,
+            'age_range' => $age,
+            'location' => $location,
+            'interests' => $interests,
+            'timestamp' => current_time('mysql')
+        );
+
+        if (is_user_logged_in()) {
+            $user_id = get_current_user_id();
+            update_user_meta($user_id, 'onboarding_data', $data);
+            update_user_meta($user_id, 'onboarding_complete', 1);
+        } else {
+            // store in cookie for guests (expires in 30 days)
+            setcookie('vibemate_onboard', wp_json_encode($data), time() + 30 * DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN);
+        }
+
+        wp_redirect(home_url());
+        exit;
+    }
+}
+add_action('template_redirect', 'handle_questionnaire_submission');
+
+// Helper: find the questionnaire page URL (by template) or fallback
+function get_questionnaire_page_url()
+{
+    $pages = get_pages(array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'template-questionnaire.php',
+        'number'     => 1
+    ));
+
+    if (!empty($pages) && isset($pages[0]->ID)) {
+        return get_permalink($pages[0]->ID);
+    }
+
+    // fallback - ensure you have a page at /questionnaire
+    return home_url('/questionnaire');
+}
+
 
 // Handle user registration
 function handle_user_registration()
 {
     if (isset($_POST['register_submit']) && isset($_POST['register_nonce']) && wp_verify_nonce($_POST['register_nonce'], 'register_action')) {
-        $username = sanitize_user($_POST['user_login']);
         $email = sanitize_email($_POST['user_email']);
         $password = $_POST['user_pass'];
         $password_confirm = $_POST['user_pass_confirm'];
 
+        // Generate username from email if not provided
+        $username = !empty($_POST['user_login']) ? sanitize_user($_POST['user_login']) : sanitize_user(substr($email, 0, strpos($email, '@')));
+        
+        // Ensure username is unique
+        $original_username = $username;
+        $counter = 1;
+        while (username_exists($username)) {
+            $username = $original_username . $counter;
+            $counter++;
+        }
+
         if ($password !== $password_confirm) {
-            wp_redirect(home_url('/signup?registration=error'));
+            wp_redirect(home_url('?registration=error'));
             exit;
         }
 
@@ -67,10 +148,10 @@ function handle_user_registration()
                 ));
             }
 
-            wp_redirect(home_url('/signup?registration=success'));
+            wp_redirect(home_url('?registration=success'));
             exit;
         } else {
-            wp_redirect(home_url('/signup?registration=error'));
+            wp_redirect(home_url('?registration=error'));
             exit;
         }
     }
@@ -99,6 +180,14 @@ function handle_user_login()
         $user = wp_signon($creds, false);
 
         if (!is_wp_error($user)) {
+            // If user hasn't completed onboarding, redirect them to the questionnaire
+            $user_id = is_object($user) && isset($user->ID) ? $user->ID : get_current_user_id();
+            $onboard = $user_id ? get_user_meta($user_id, 'onboarding_complete', true) : false;
+            if (!$onboard) {
+                wp_redirect(get_questionnaire_page_url());
+                exit;
+            }
+
             wp_redirect(home_url());
             exit;
         } else {
@@ -112,7 +201,11 @@ add_action('template_redirect', 'handle_user_login');
 // Redirect after login
 function redirect_after_login($redirect_to, $request, $user)
 {
-    if (!is_wp_error($user)) {
+    if (!is_wp_error($user) && is_object($user) && isset($user->ID)) {
+        $onboard = get_user_meta($user->ID, 'onboarding_complete', true);
+        if (!$onboard) {
+            return get_questionnaire_page_url();
+        }
         return home_url();
     }
     return $redirect_to;

@@ -1,0 +1,274 @@
+/* Front Page Register - Two Column Layout */
+.register-page-wrapper {
+    background: url('../image/homepagefinal.png') center center / cover no-repeat #000000;
+    min-height: calc(100vh - 200px); /* Soustrayant approximativement header + footer */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+/* Colonne gauche - Branding */
+.register-branding {
+    position: relative;
+    overflow: visible;
+}
+
+/* Cercles pour les images de musiciens - 6 cercles positionnés comme sur la photo */
+.musician-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.musician-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cercle 1 - Top Left (homme avec dreadlocks) */
+.musician-circle-1 {
+    width: 270px;
+    height: 270px;
+    top: 5%;
+    left: 10%;
+}
+
+/* Cercle 2 - Top Center (groupe de musiciens) */
+.musician-circle-2 {
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 55%;
+}
+
+/* Cercle 3 - Mid-Right (deux hommes, au-dessus du grand cercle rose) */
+.musician-circle-3 {
+    width: 200px;
+    height: 200px;
+    top: -3%;
+    right: 5%;
+}
+
+/* Cercle 4 - Mid-Left (personne avec veste en cuir, en dessous du top-left) */
+.musician-circle-4 {
+    width: 130px;
+    height: 130px;
+    top: 59%;
+    left: 25%;
+}
+
+/* Cercle 5 - Bottom Left (femme chantant en noir et blanc) */
+.musician-circle-5 {
+    width: 180px;
+    height: 180px;
+    bottom: -7%;
+    left: 10%;
+}
+
+/* Cercle 6 - Large Bottom Right (jeune femme avec cheveux roses - le grand cercle) */
+.musician-circle-6 {
+    width: 441px;
+    height: 433px;
+    bottom: -50px;
+    left: -450px;
+}
+
+.branding-content {
+    z-index: 2;
+    position: absolute;
+    top: 70px;
+    left: 160px;
+    text-align: left;
+}
+
+.brand-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+/* Use a large SVG logo instead of text; keep responsive sizing */
+.brand-title .brand-logo {
+    width: 400px;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.brand-vibe {
+    font-family: "utile", "brother-1816", sans-serif;
+    display: block;
+}
+
+.brand-mate {
+    font-family: "utile", "brother-1816", sans-serif;
+    font-style: italic;
+    display: block;
+    margin-left: 0.5rem;
+}
+
+.brand-tagline {
+    font-size: 1.75rem;
+    font-family: "brother-1816", sans-serif;
+    font-weight: 800;
+    opacity: 0.85;
+    /* Note: Brother 1816 kit only has 800 and 900 weights. 
+       To get medium (500), add it to your Adobe Fonts kit at fonts.adobe.com */
+    filter: brightness(1.1);
+}
+
+/* Colonne droite - Formulaire */
+.register-form-section {
+    /* Fond unifié avec le wrapper parent */
+    background: transparent;
+    position: relative;
+}
+
+
+.register-form-glass-card {
+    max-width: 450px;
+    width: 100%;
+    /* Force a consistent card height so login and register pages match even if form content differs */
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.register-title {
+    font-family: "utile", "brother-1816", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.register-form .form-label {
+    font-family: "utile", "brother-1816", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.register-form .form-control {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "utile", "brother-1816", sans-serif;
+    background: #fff;
+    border: none;
+    color: #111;
+    transition: border-color 0.2s ease;
+}
+
+.register-form .form-control:focus {
+    border-color: #f36818;
+    box-shadow: 0 0 0 0.2rem rgba(243, 104, 24, 0.25);
+    background: #fff;
+}
+
+.register-form .form-control::placeholder {
+    color: #6B7280;
+}
+
+.register-form .form-check-label {
+    font-family: "utile", "brother-1816", sans-serif;
+    font-size: 12px;
+    color: #D1D5DB;
+}
+
+.register-form .form-check-input {
+    margin-top: 0.25rem;
+}
+
+.register-submit-btn {
+    padding: 14px;
+    background: #f36818;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "utile", "brother-1816", sans-serif;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.register-submit-btn:hover {
+    background: #d55812;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.register-submit-btn:active {
+    transform: translateY(0);
+    background: #d55812;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .register-branding {
+        min-height: 40vh;
+        padding: 3rem 0;
+    }
+
+    .brand-title {
+        font-size: 3rem;
+    }
+
+    .brand-title .brand-logo {
+        width: min(420px, 90%);
+    }
+
+    .register-form-section {
+        min-height: 60vh;
+    }
+}
+
+/* Ensure login and register pages share the exact same column widths on large screens
+   so positioned musician circles don't shift between pages. Forces a stable 8/4 split. */
+@media (min-width: 992px) {
+    .register-branding {
+        flex: 0 0 66.666666%;
+        max-width: 66.666666%;
+    }
+    .register-form-section {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    /* Ensure the form card uses the same max width on both pages */
+    .register-form-glass-card {
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+/* Login page tweaks: avoid musician circles overlapping each other on the login template */
+.login-page .musician-circle-3 {
+    /* push slightly down on login so it doesn't sit above/overlap other circles */
+    top: 6%;
+}
+.login-page .musician-circle-6 {
+    /* bring the large circle a bit closer to the branding area to avoid intruding into other circles */
+    left: -300px;
+}
+/* set explicit stacking order so circles don't visually obscure each other unexpectedly */
+.login-page .musician-circle-1 { z-index: 2; }
+.login-page .musician-circle-2 { z-index: 0; }
+
+/* Ensure musician-circle-2 stays behind the branding/logo globally */
+.musician-circle-2 { z-index: 0; }
+.login-page .musician-circle-3 { z-index: 4; }
+.login-page .musician-circle-4 { z-index: 2; }
+.login-page .musician-circle-5 { z-index: 1; }
+.login-page .musician-circle-6 { z-index: 0; }
+
