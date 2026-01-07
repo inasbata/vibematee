@@ -25,9 +25,32 @@ function theme_scripts()
         wp_enqueue_style('events-style', get_template_directory_uri() . '/assets/css/events.css', array('theme-style', 'bootstrap'), '1.0.0');
     }
     
+    // Enqueue Event Details CSS only on Event Details template
+    if (is_page_template('template-détails.php')) {
+        wp_enqueue_style('event-details-style', get_template_directory_uri() . '/assets/css/event-details.css', array('theme-style', 'bootstrap'), '1.0.0');
+    }
+    
+    // Enqueue Create Group CSS only on Create Group template
+    if (is_page_template('template-groupe.php')) {
+        wp_enqueue_style('create-group-style', get_template_directory_uri() . '/assets/css/create-group.css', array('theme-style', 'bootstrap'), '1.0.0');
+    }
+    
+    // Add body class for template-accueil.php
+    if (is_page_template('template-accueil.php')) {
+        add_filter('body_class', function($classes) {
+            $classes[] = 'template-accueil';
+            return $classes;
+        });
+    }
+    
     // Enqueue Bootstrap JS
     wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', array(), '5.3.2', true);
     wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array('bootstrap'), '1.0.0', true);
+    
+    // Passer l'URL de création de groupe au JavaScript
+    wp_localize_script('theme-script', 'vibeMateData', array(
+        'createGroupUrl' => get_create_group_url()
+    ));
 }
 add_action('wp_enqueue_scripts', 'theme_scripts');
 
@@ -130,6 +153,67 @@ add_filter('login_redirect', 'redirect_after_login', 10, 3);
 function get_user_custom_field($user_id, $field_name)
 {
     return get_user_meta($user_id, $field_name, true);
+}
+
+// Helper function to get homepage URL (page with template-accueil.php or default homepage)
+function get_homepage_url()
+{
+    // Try to find a page using template-accueil.php
+    $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'template-accueil.php'
+    ));
+    
+    if (!empty($pages)) {
+        return get_permalink($pages[0]->ID);
+    }
+    
+    // Fallback to default homepage
+    return home_url('/');
+}
+
+// Helper function to get event details page URL (page with template-détails.php)
+function get_event_details_url()
+{
+    // Try to find a page using template-détails.php
+    $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'template-détails.php'
+    ));
+    
+    if (!empty($pages)) {
+        return get_permalink($pages[0]->ID);
+    }
+    
+    // Fallback to default events page or home
+    return home_url('/events');
+}
+
+// Helper function to get create group page URL (page with template-groupe.php)
+function get_create_group_url()
+{
+    // Try to find a page using template-groupe.php (same method as get_homepage_url)
+    $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'template-groupe.php'
+    ));
+    
+    if (!empty($pages)) {
+        return get_permalink($pages[0]->ID);
+    }
+    
+    // Try alternative: find by slug (most common approach)
+    $slugs = array('creer-un-groupe', 'creer-groupe', 'create-group', 'créer-un-groupe');
+    foreach ($slugs as $slug) {
+        $page = get_page_by_path($slug);
+        if ($page) {
+            return get_permalink($page->ID);
+        }
+    }
+    
+    // Last fallback: return URL that should work if page is created with this slug
+    // This will work once a page is created with slug "creer-un-groupe" in WordPress
+    return home_url('/creer-un-groupe');
 }
 
 // Add custom fields to user profile in admin

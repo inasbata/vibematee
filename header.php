@@ -26,7 +26,7 @@
 
         <div class="navbar">
 
-            <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Accueil VibeMate">
+            <a class="brand" href="<?php echo esc_url(get_homepage_url()); ?>" aria-label="Accueil VibeMate">
 
                 <span class="brand-mark" aria-hidden="true">
 

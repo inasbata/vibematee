@@ -17,25 +17,26 @@ get_header();
         width: 100%;
         max-width: 960px;
         margin: 0 auto 32px auto;
-        background: linear-gradient(90deg, #f25c04, #f250a9);
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 999px;
         padding: 4px;
-        box-shadow: 0 0 24px rgba(242, 80, 169, 0.55), 0 0 32px rgba(242, 92, 4, 0.45);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         justify-content: center;
     }
     .pv-tabs {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        gap: 0;
         width: 100%;
         background: transparent;
     }
     .pv-tab-btn {
         flex: 1;
         border: none;
-        background: transparent;
-        color: #e9eef4;
+        background: #ffffff;
+        color: #000000;
         padding: 8px 16px;
         border-radius: 999px;
         cursor: pointer;
@@ -43,9 +44,8 @@ get_header();
         transition: all 0.2s ease;
     }
     .pv-tab-btn.active {
-        background: #0b0b0b;
+        background: #000000;
         color: #ffffff;
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
     }
 
     .pv-filter-wrap {
@@ -58,7 +58,7 @@ get_header();
     /* Filter bar */
     .pv-filter-bar {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 0;
         border: 1px solid rgba(255,255,255,0.6);
         border-radius: 16px;
@@ -140,6 +140,76 @@ get_header();
         font-size: 14px;
         opacity: 0.9;
     }
+    .pv-modal-label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 500;
+        color: #e9eef4;
+    }
+    .pv-modal-select {
+        width: 100%;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: #e9eef4;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .pv-modal-select:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    .pv-modal-select:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ff6b35;
+    }
+    .pv-modal-select option {
+        background: #0b0b0b;
+        color: #e9eef4;
+    }
+    .pv-modal-slider {
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.2);
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 20px 0 10px 0;
+    }
+    .pv-modal-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff6b35;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .pv-modal-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff6b35;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .pv-slider-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(233, 238, 244, 0.7);
+        margin-top: 4px;
+    }
+    #pv-budget-value {
+        color: #ff6b35;
+        font-weight: 600;
+    }
     .pv-panel {
         display: none;
     }
@@ -153,12 +223,12 @@ get_header();
         gap: 16px;
     }
     .pv-card {
-        background: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.89);
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 12px;
         overflow: hidden;
-        color: #e9eef4;
-        box-shadow: none;
+        color: #000000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         padding: 12px;
         display: flex;
         flex-direction: column;
@@ -194,6 +264,7 @@ get_header();
         font-size: 14px;
         font-weight: 600;
         line-height: 1.3;
+        color: #000000;
     }
     .pv-meta {
         display: grid;
@@ -208,23 +279,24 @@ get_header();
         align-items: center;
         gap: 6px;
         font-size: 12px;
-        color: #e9eef4;
+        color: #666666;
     }
     .pv-chip svg {
         width: 14px;
         height: 14px;
+        stroke: #666666;
     }
     .pv-participants {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         font-size: 12px;
-        color: #ffffff;
+        color: #000000;
     }
     .pv-participants svg {
         width: 16px;
         height: 16px;
-        stroke: #ffffff;
+        stroke: #000000;
     }
     .pv-price-like {
         display: flex;
@@ -234,7 +306,7 @@ get_header();
     .pv-price {
         font-weight: 600;
         font-size: 13px;
-        color: #ffffff;
+        color: #000000;
     }
     .pv-like {
         background: rgba(255,255,255,0.1);
@@ -262,8 +334,8 @@ get_header();
         gap: 10px;
     }
     .pv-btn {
-        background: #F250A9;
-        color:rgb(255, 255, 255);
+        background: #9E34F6;
+        color: rgb(255, 255, 255);
         border: none;
         padding: 8px 14px;
         border-radius: 999px;
@@ -271,6 +343,10 @@ get_header();
         cursor: pointer;
         font-size: 12px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        transition: all 0.2s ease;
+    }
+    .pv-btn:hover {
+        background: #7c2dd2;
     }
     .pv-actions-right {
         display: inline-flex;
@@ -278,9 +354,9 @@ get_header();
         gap: 10px;
     }
     .pv-like {
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.3);
-        color: #fff;
+        background: #F250A9;
+        border: 1px solid #F250A9;
+        color: #ffffff;
         border-radius: 50%;
         width: 32px;
         height: 32px;
@@ -292,14 +368,84 @@ get_header();
     }
     .pv-like:hover,
     .pv-like.liked {
-        background: #F25C04;
-        border-color: #F25C04;
-        color: #0b0b0b;
+        background: #e03d95;
+        border-color: #e03d95;
+        color: #ffffff;
     }
     .pv-footer-line {
         font-size: 12px;
         opacity: 0.85;
         margin-top: 4px;
+    }
+    .pv-modal-label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 500;
+        color: #e9eef4;
+    }
+    .pv-modal-select {
+        width: 100%;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: #e9eef4;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .pv-modal-select:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    .pv-modal-select:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ff6b35;
+    }
+    .pv-modal-select option {
+        background: #0b0b0b;
+        color: #e9eef4;
+    }
+    .pv-modal-slider {
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.2);
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 20px 0 10px 0;
+    }
+    .pv-modal-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff6b35;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .pv-modal-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff6b35;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .pv-slider-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(233, 238, 244, 0.7);
+        margin-top: 4px;
+    }
+    #pv-budget-value {
+        color: #ff6b35;
+        font-weight: 600;
     }
 </style>
 
@@ -314,19 +460,45 @@ get_header();
     <div class="pv-filter-wrap" id="pv-filter-wrap">
         <div class="pv-filter-bar" aria-label="Filtres">
             <button class="pv-filter-btn" data-filter="genre">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18l-7 7v5l-4 2v-7L3 5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="8" r="2"/>
+                    <circle cx="12" cy="16" r="2"/>
+                    <circle cx="8" cy="12" r="2"/>
+                    <circle cx="16" cy="12" r="2"/>
+                    <path d="M12 6v4M12 14v4M6 12h4M14 12h4"/>
+                </svg>
                 Genre
             </button>
+            <button class="pv-filter-btn" data-filter="style">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18V5l12-2v13"/>
+                    <circle cx="6" cy="18" r="3"/>
+                    <circle cx="18" cy="16" r="3"/>
+                </svg>
+                Style
+            </button>
             <button class="pv-filter-btn" data-filter="type">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 21h12M6 3h12l-1 7H7L6 3z"/><path d="M9 3l1 7v4l-1 3h6l-1-3v-4l1-7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 21h8M8 3h8l-1 7H9L8 3z"/>
+                    <path d="M9 10l1 4v4l-1 2h4l-1-2v-4l1-4"/>
+                    <line x1="12" y1="3" x2="12" y2="10"/>
+                </svg>
                 Type
             </button>
             <button class="pv-filter-btn" data-filter="budget">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 10c0-2 2-4 6-4s6 2 6 4c0 2-2 4-6 4s-6-2-6-4z"/>
+                    <path d="M6 10v8c0 2 2 4 6 4s6-2 6-4v-8"/>
+                    <path d="M12 6v2M12 18v2"/>
+                </svg>
                 Budget
             </button>
             <button class="pv-filter-btn" data-filter="nombre">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
                 Nombre
             </button>
         </div>
@@ -433,8 +605,145 @@ get_header();
     </div>
 
     <div id="pv-my-space" class="pv-panel" role="tabpanel">
-        <!-- Contenu de la section My Space -->
-        <p style="color:#e9eef4;">Contenu "My Space" (insérez vos cartes / éléments ici).</p>
+        <!-- Section Mes Favoris -->
+        <div style="margin-bottom: 4rem;">
+            <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 2rem;">Mes Favoris</h2>
+            <div class="pv-cards-grid">
+                <div class="pv-card">
+                    <div class="pv-card-header">
+                        <img class="pv-avatar" src="<?php echo get_template_directory_uri(); ?>/images/image/logo%20blanc.png" alt="">
+                        <span>Yasmine Ben Aïssa</span>
+                        <span class="pv-participants" style="margin-left:auto;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            2
+                        </span>
+                    </div>
+                    <img class="pv-cover" src="<?php echo get_template_directory_uri(); ?>/images/image/https---cdn.evbuc.com-images-1170262407-2573825772631-1-original.20251105-225643.jpeg" alt="Roller Party">
+                    <div class="pv-card-body">
+                        <div class="pv-title">ROLLY - 06 DEC 2025 - Last Roller Party of 2025</div>
+                        <div class="pv-meta">
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="5"/><line x1="16" y1="3" x2="16" y2="5"/></svg>
+                                Dec 6 at 6pm to Dec 7 at 3am
+                            </span>
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                                Av. du Port 86C
+                            </span>
+                        </div>
+                        <div class="pv-actions">
+                            <span class="pv-price">à partir de 16,66€</span>
+                            <div class="pv-actions-right">
+                                <button class="pv-btn">Rejoindre</button>
+                                <button class="pv-like" aria-label="Ajouter aux favoris">♥</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pv-card">
+                    <div class="pv-card-header">
+                        <img class="pv-avatar" src="<?php echo get_template_directory_uri(); ?>/images/image/logo%20blanc.png" alt="">
+                        <span>Lina Moreau</span>
+                        <span class="pv-participants" style="margin-left:auto;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            2
+                        </span>
+                    </div>
+                    <img class="pv-cover" src="<?php echo get_template_directory_uri(); ?>/images/image/https---cdn.evbuc.com-images-1171232278-288138124246-1-original.20251118-123706.jpeg" alt="Tarmac">
+                    <div class="pv-card-body">
+                        <div class="pv-title">ROLLY - 06 DEC 2025 - Last Roller Party of 2025</div>
+                        <div class="pv-meta">
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="5"/><line x1="16" y1="3" x2="16" y2="5"/></svg>
+                                Dec 6 at 6pm to Dec 7 at 3am
+                            </span>
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                                Av. du Port 86C
+                            </span>
+                        </div>
+                        <div class="pv-actions">
+                            <span class="pv-price">à partir de 16,66€</span>
+                            <div class="pv-actions-right">
+                                <button class="pv-btn">Rejoindre</button>
+                                <button class="pv-like" aria-label="Ajouter aux favoris">♥</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pv-card">
+                    <div class="pv-card-header">
+                        <img class="pv-avatar" src="<?php echo get_template_directory_uri(); ?>/images/image/logo%20blanc.png" alt="">
+                        <span>Lina Moreau</span>
+                        <span class="pv-participants" style="margin-left:auto;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            2
+                        </span>
+                    </div>
+                    <img class="pv-cover" src="<?php echo get_template_directory_uri(); ?>/images/image/https---cdn.evbuc.com-images-1059497733-1445950664583-1-original.20250624-145420.jpeg" alt="Old School Vibes">
+                    <div class="pv-card-body">
+                        <div class="pv-title">ROLLY - 06 DEC 2025 - Last Roller Party of 2025</div>
+                        <div class="pv-meta">
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="5"/><line x1="16" y1="3" x2="16" y2="5"/></svg>
+                                Dec 6 at 6pm to Dec 7 at 3am
+                            </span>
+                            <span class="pv-chip">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                                Av. du Port 86C
+                            </span>
+                        </div>
+                        <div class="pv-actions">
+                            <span class="pv-price">à partir de 16,66€</span>
+                            <div class="pv-actions-right">
+                                <button class="pv-btn">Rejoindre</button>
+                                <button class="pv-like" aria-label="Ajouter aux favoris">♥</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Mes Groupes -->
+        <div>
+            <h2 style="font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 2rem;">Mes Groupes</h2>
+            <div class="pv-cards-grid">
+                <div class="pv-card">
+                    <div class="pv-card-header">
+                        <img class="pv-avatar" src="<?php echo get_template_directory_uri(); ?>/images/image/logo%20blanc.png" alt="">
+                        <span>Noura Haddad</span>
+                        <span class="pv-participants" style="margin-left:auto;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            2
+                        </span>
+                    </div>
+                <img class="pv-cover" src="<?php echo get_template_directory_uri(); ?>/images/image/https___cdn.evbuc.com_images_1157678513_986235900673_1_original.jpeg" alt="New Years">
+                <div class="pv-card-body">
+                    <div class="pv-title">ROLLY - 06 DEC 2025 - Last Roller Party of 2025</div>
+                    <div class="pv-meta">
+                        <span class="pv-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="5"/><line x1="16" y1="3" x2="16" y2="5"/></svg>
+                            Dec 6 at 6pm to Dec 7 at 3am
+                        </span>
+                        <span class="pv-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                            Av. du Port 86C
+                        </span>
+                    </div>
+                    <div class="pv-actions">
+                        <span class="pv-price">à partir de 16,66€</span>
+                        <div class="pv-actions-right">
+                            <button class="pv-btn">Rejoindre</button>
+                            <button class="pv-like" aria-label="Ajouter aux favoris">♥</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -446,10 +755,35 @@ get_header();
             <button class="pv-modal-close" data-close>×</button>
         </div>
         <div class="pv-modal-body">
-            <p>Choisissez vos genres (placeholder). Vous pourrez lier vos données ici.</p>
+            <label for="pv-genre-select" class="pv-modal-label">Choisissez un genre :</label>
+            <select id="pv-genre-select" class="pv-modal-select">
+                <option value="">Sélectionner...</option>
+                <option value="fille">Fille</option>
+                <option value="garcon">Garçon</option>
+                <option value="mixte">Mixte</option>
+            </select>
         </div>
     </div>
+</div>
+
+<div class="pv-modal" id="pv-modal-style" aria-hidden="true">
+    <div class="pv-modal-content">
+        <div class="pv-modal-header">
+            <h3>Filtre : Style</h3>
+            <button class="pv-modal-close" data-close>×</button>
+        </div>
+        <div class="pv-modal-body">
+            <label for="pv-style-select" class="pv-modal-label">Choisissez un style :</label>
+            <select id="pv-style-select" class="pv-modal-select">
+                <option value="">Sélectionner...</option>
+                <option value="rock">Rock</option>
+                <option value="rap">Rap</option>
+                <option value="electro">Electro</option>
+                <option value="pop">Pop</option>
+            </select>
+        </div>
     </div>
+</div>
 
 <div class="pv-modal" id="pv-modal-type" aria-hidden="true">
     <div class="pv-modal-content">
@@ -458,7 +792,13 @@ get_header();
             <button class="pv-modal-close" data-close>×</button>
         </div>
         <div class="pv-modal-body">
-            <p>Choisissez vos types d'événements (placeholder).</p>
+            <label for="pv-type-select" class="pv-modal-label">Choisissez un type :</label>
+            <select id="pv-type-select" class="pv-modal-select">
+                <option value="">Sélectionner...</option>
+                <option value="soiree">Soirée</option>
+                <option value="festival">Festival</option>
+                <option value="concert">Concert</option>
+            </select>
         </div>
     </div>
 </div>
@@ -470,7 +810,12 @@ get_header();
             <button class="pv-modal-close" data-close>×</button>
         </div>
         <div class="pv-modal-body">
-            <p>Réglez votre budget (placeholder).</p>
+            <label for="pv-budget-slider" class="pv-modal-label">Budget maximum : <span id="pv-budget-value">50€</span></label>
+            <input type="range" id="pv-budget-slider" class="pv-modal-slider" min="0" max="100" value="50" step="1">
+            <div class="pv-slider-labels">
+                <span>0€</span>
+                <span>100€</span>
+            </div>
         </div>
     </div>
 </div>
@@ -482,7 +827,13 @@ get_header();
             <button class="pv-modal-close" data-close>×</button>
         </div>
         <div class="pv-modal-body">
-            <p>Choisissez le nombre de personnes (placeholder).</p>
+            <label for="pv-nombre-select" class="pv-modal-label">Choisissez le nombre de personnes :</label>
+            <select id="pv-nombre-select" class="pv-modal-select">
+                <option value="">Sélectionner...</option>
+                <option value="1-2">1-2</option>
+                <option value="3-4">3-4</option>
+                <option value="5-plus">5 et plus</option>
+            </select>
         </div>
     </div>
 </div>
@@ -531,6 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.pv-filter-btn');
     const modals = {
         genre: document.getElementById('pv-modal-genre'),
+        style: document.getElementById('pv-modal-style'),
         type: document.getElementById('pv-modal-type'),
         budget: document.getElementById('pv-modal-budget'),
         nombre: document.getElementById('pv-modal-nombre'),
@@ -555,6 +907,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // Gestion du slider budget
+    const budgetSlider = document.getElementById('pv-budget-slider');
+    const budgetValue = document.getElementById('pv-budget-value');
+    if (budgetSlider && budgetValue) {
+        budgetSlider.addEventListener('input', (e) => {
+            budgetValue.textContent = e.target.value + '€';
+        });
+    }
 });
 </script>
 
