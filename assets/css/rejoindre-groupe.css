@@ -1,0 +1,212 @@
+/* Page Rejoindre un groupe */
+.rejoindre-un-groupe-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    font-family: "utile", "brother-1816", sans-serif;
+    padding-top: 2rem; /* Espace pour la navbar */
+}
+
+/* Bannière principale */
+.group-banner-section {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.group-banner-image {
+    width: 1129px;
+    max-width: 100%;
+    height: 291px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Section profil */
+.group-profile-section {
+    max-width: 1200px;
+}
+
+.group-profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #333;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.group-profile-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    font-family: "brother-1816", sans-serif;
+}
+
+.group-spots-left {
+    font-size: 16px;
+    font-weight: 500;
+    color: #f36818;
+    margin: 0.25rem 0 0;
+    font-family: "utile", sans-serif;
+}
+
+/* Boutons d'action */
+.btn-join-group {
+    background: #f36818;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "utile", sans-serif;
+}
+
+.btn-join-group:hover {
+    background: #e55a0f;
+    transform: translateY(-2px);
+}
+
+.btn-favorite-group {
+    background: #7a27be;
+    color: #fff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.btn-favorite-group:hover {
+    background: #6a1fa8;
+    transform: translateY(-2px);
+}
+
+/* Sections description et critères */
+.group-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: "brother-1816", sans-serif;
+}
+
+.group-description-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0;
+    font-family: "utile", sans-serif;
+}
+
+/* Badges critères */
+.group-criteria-badge {
+    background: #fff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "utile", sans-serif;
+}
+
+/* Carte événement */
+.group-event-card {
+    max-width: 1200px;
+}
+
+.event-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    font-family: "brother-1816", sans-serif;
+}
+
+.event-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    font-family: "brother-1816", sans-serif;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.event-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #fff;
+    font-family: "utile", sans-serif;
+}
+
+.event-icon {
+    flex-shrink: 0;
+}
+
+.btn-event-details {
+    background: #f36818;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "utile", sans-serif;
+    width: 100%;
+    max-width: 200px;
+}
+
+.btn-event-details:hover {
+    background: #e55a0f;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .group-banner-image {
+        height: 200px;
+    }
+    
+    .group-profile-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .group-event-card {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+

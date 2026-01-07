@@ -400,7 +400,8 @@ get_header();
                 </div>
             </div>
 
-            <div class="question-step step-14 question-thanks" data-step="14">
+            <div class="question-step step-14 question-thanks" data-step="14" style="background: url('<?php echo esc_url( get_template_directory_uri() . '/image/imageqst.png' ); ?>') center center / cover no-repeat #000;">
+                <button type="button" class="question-back prev-btn" aria-label="Revenir">←</button>
                 <div class="thanks-content">
                     <h2 class="thanks-title">Merci pour les infos !</h2>
                     <p class="thanks-message">A une étape de trouver ton perfect VibeMate</p>

@@ -1,0 +1,255 @@
+/* Page Profil */
+.profil-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    font-family: "utile", "brother-1816", sans-serif;
+    padding: 2rem 0;
+}
+
+/* Sidebar gauche */
+.profil-sidebar {
+    background: #000;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid #333;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Avatar */
+.profil-avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.profil-avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #333;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-edit-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+}
+
+/* Titre Paramètres */
+.sidebar-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    font-family: "brother-1816", sans-serif;
+}
+
+/* Menu de navigation */
+.sidebar-nav {
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    font-family: "utile", sans-serif;
+    font-size: 14px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+    flex-shrink: 0;
+}
+
+.nav-item span {
+    flex: 1;
+}
+
+.nav-arrow {
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+/* Bouton déconnexion */
+.logout-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: "utile", sans-serif;
+    font-size: 16px;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    transition: opacity 0.2s ease;
+    width: 100%;
+}
+
+.logout-link:hover {
+    opacity: 0.7;
+}
+
+.logout-arrow {
+    transform: rotate(180deg);
+}
+
+/* Contenu droit */
+.profil-content {
+    padding: 2rem;
+    background: #000;
+}
+
+.profil-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profil-form {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+/* Sélection de genre */
+.gender-selection {
+    margin-bottom: 2rem;
+}
+
+.gender-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.gender-btn {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    background: #2a2a2a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "utile", sans-serif;
+}
+
+.gender-btn:hover {
+    background: #333;
+}
+
+.gender-btn.active {
+    background: #3a3a3a;
+}
+
+/* Labels */
+.profil-form .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-family: "utile", sans-serif;
+}
+
+/* Inputs */
+.profil-form .form-control {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-size: 14px;
+    font-family: "utile", sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profil-form .form-control:focus {
+    background: #2a2a2a;
+    border-color: #7a27be;
+    box-shadow: 0 0 0 2px rgba(122, 39, 190, 0.2);
+    color: #fff;
+    outline: none;
+}
+
+.profil-form .form-control::placeholder {
+    color: #666;
+}
+
+/* Bouton Enregistrer */
+.btn-save {
+    background: #f36818;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 2rem;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "utile", sans-serif;
+    width: 100%;
+    max-width: 200px;
+}
+
+.btn-save:hover {
+    background: #e55a0f;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .profil-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+    
+    .profil-content {
+        padding: 1.5rem;
+    }
+    
+    .profil-form {
+        padding: 1.5rem;
+    }
+}
+

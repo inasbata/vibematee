@@ -45,6 +45,34 @@ function enqueue_questionnaire_assets()
 }
 add_action('wp_enqueue_scripts', 'enqueue_questionnaire_assets');
 
+// Enqueue rejoindre un groupe assets
+function enqueue_rejoindre_groupe_assets()
+{
+    if (is_page_template('template-rejoindreungroupe.php')) {
+        wp_enqueue_style('rejoindre-groupe-style', get_template_directory_uri() . '/assets/css/rejoindre-groupe.css', array('theme-style'), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_rejoindre_groupe_assets');
+
+// Enqueue profil assets
+function enqueue_profil_assets()
+{
+    if (is_page_template('template-profil.php')) {
+        wp_enqueue_style('profil-style', get_template_directory_uri() . '/assets/css/profil.css', array('theme-style'), '1.0.0');
+        wp_enqueue_script('profil-script', get_template_directory_uri() . '/assets/js/profil.js', array(), '1.0.0', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_profil_assets');
+
+// Enqueue events favorites assets
+function enqueue_events_favorites_assets()
+{
+    if (is_page_template('template events fav.php')) {
+        wp_enqueue_style('events-favorites-style', get_template_directory_uri() . '/assets/css/events-favorites.css', array('theme-style'), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_events_favorites_assets');
+
 // Handle questionnaire submission
 function handle_questionnaire_submission()
 {
@@ -92,6 +120,57 @@ function get_questionnaire_page_url()
 
     // fallback - ensure you have a page at /questionnaire
     return home_url('/questionnaire');
+}
+
+// Helper: find the events favorites page URL (by template) or fallback
+function get_events_favorites_page_url()
+{
+    $pages = get_pages(array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'template events fav.php',
+        'number'     => 1
+    ));
+
+    if (!empty($pages) && isset($pages[0]->ID)) {
+        return get_permalink($pages[0]->ID);
+    }
+
+    // fallback
+    return home_url('/events-favorites');
+}
+
+// Helper: find the securite page URL (by template) or fallback
+function get_securite_page_url()
+{
+    $pages = get_pages(array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'template-securite.php',
+        'number'     => 1
+    ));
+
+    if (!empty($pages) && isset($pages[0]->ID)) {
+        return get_permalink($pages[0]->ID);
+    }
+
+    // fallback
+    return home_url('/securite');
+}
+
+// Helper: find the profil page URL (by template) or fallback
+function get_profil_page_url()
+{
+    $pages = get_pages(array(
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => 'template-profil.php',
+        'number'     => 1
+    ));
+
+    if (!empty($pages) && isset($pages[0]->ID)) {
+        return get_permalink($pages[0]->ID);
+    }
+
+    // fallback
+    return home_url('/profil');
 }
 
 
