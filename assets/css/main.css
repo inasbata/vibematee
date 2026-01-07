@@ -113,72 +113,6 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
-/* Front Page User Status */
-.front-page-content {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-}
-
-.front-page-content h1 {
-    margin-bottom: 2rem;
-}
-
-.user-status {
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 2rem;
-}
-
-.user-status.logged-in {
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-
-.user-status.logged-out {
-    background: #fff3cd;
-    border: 1px solid #ffeaa7;
-}
-
-.user-status p {
-    margin-bottom: 1rem;
-}
-
-.user-status p:last-of-type {
-    margin-bottom: 1.5rem;
-}
-
-.auth-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.logout-btn,
-.login-btn,
-.register-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #0073aa;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-
-.logout-btn:hover,
-.login-btn:hover,
-.register-btn:hover {
-    background: #005a87;
-}
-
-.register-btn {
-    background: #28a745;
-}
-
-.register-btn:hover {
-    background: #218838;
-}
-
 /* Header search */
 .site-header {
     display: flex;
@@ -256,34 +190,27 @@ header {
 .site-footer {
     background: #080808;
     color: #e5e5e5;
-    padding: 60px 40px 50px;
+    padding: 60px 0 50px;
     font-family: "utile", "brother-1816", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.footer-inner {
+.site-footer .container {
     max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.footer-brand {
-    display: flex;
-    gap: 16px;
 }
 
 .footer-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     border-radius: 10px;
-    background: #f36818;
-    color: #fff;
-    font-weight: 800;
     display: grid;
     place-items: center;
-    font-size: 22px;
+    background: transparent; /* SVG already a sa couleur */
+}
+.footer-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .footer-title {
@@ -310,11 +237,12 @@ header {
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
     margin: 0;
-    display: grid;
-    gap: 8px;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
 }
 
 .footer-links a {
@@ -329,84 +257,59 @@ header {
     color: #f36818;
 }
 
-.footer-newsletter {
-    display: grid;
-    gap: 10px;
-}
-
-.footer-newsletter input {
-    width: 100%;
-    padding: 10px 12px;
+.footer-newsletter .form-control {
     background: #d9d9d9;
     border: none;
     border-radius: 12.75px;
+    padding: 10px 12px;
     font-size: 14px;
     color: #111;
 }
 
-.footer-newsletter input::placeholder {
+.footer-newsletter .form-control::placeholder {
     color: #6b6b6b;
 }
 
-.footer-newsletter button {
-    padding: 12px;
+.footer-newsletter .form-control:focus {
+    background: #d9d9d9;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.footer-newsletter .btn {
     background: #f36818;
     color: #fff;
     border: none;
     border-radius: 24.34px;
+    padding: 12px;
     font-size: 16px;
     font-weight: 400;
-    cursor: pointer;
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.footer-newsletter button:hover {
+.footer-newsletter .btn:hover {
     background: #d55812;
+    color: #fff;
     transform: translateY(-1px);
 }
 
 .footer-consent {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: flex-start;
-    gap: 10px;
     font-size: 16px;
     font-weight: 400;
     color: #bfbfbf;
     line-height: 1.4;
 }
 
-.footer-consent input {
+.footer-consent .form-check-input {
     margin-top: 2px;
 }
 
-.footer-consent span {
-    display: block;
+.footer-consent .form-check-label {
     padding-top: 2px;
-}
-
-@media (max-width: 992px) {
-    .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
 }
 
 @media (max-width: 720px) {
     .site-footer {
-        padding: 50px 22px 40px;
-    }
-
-    .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .footer-brand {
-        flex-direction: row;
+        padding: 50px 0 40px;
     }
 }

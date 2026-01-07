@@ -1337,44 +1337,40 @@
     justify-content: center;
 }
 
-/* Page de remerciement - Step 14 */
-.question-step.question-thanks.active {
-    color: #fff;
-    position: relative;
-    padding: 0;
-    background: url('assets/image/image qst fin.png') center center / cover no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Step 14 - Page avec image de fond */
+.question-thanks {
+    background: url('../image/imageqst.png') center center / cover no-repeat #000;
     min-height: 100vh;
+    position: relative;
+}
+
+.question-step.question-thanks.active {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('../image/imageqst.png') center center / cover no-repeat #000;
 }
 
-.question-thanks.active {
-    background: url('../image/image qst fin.png') center center / cover no-repeat !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-.question-thanks {
+.question-thanks .question-back {
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
     color: #fff;
-    position: relative;
-    padding: 0;
-    background: url('../image/image qst fin.png') center center / cover no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .thanks-content {
-    text-align: center;
+    text-align: left;
     padding: 2rem;
     max-width: 500px;
     z-index: 2;
     position: relative;
+    margin-top: 3rem;
 }
 
 .thanks-title {
@@ -1404,6 +1400,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: "utile", "brother-1816", sans-serif;
+    width: 100%;
+    max-width: 300px;
 }
 
 .thanks-start-btn:hover {
