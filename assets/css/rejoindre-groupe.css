@@ -5,6 +5,15 @@
     min-height: 100vh;
     font-family: "utile", "brother-1816", sans-serif;
     padding-top: 2rem; /* Espace pour la navbar */
+    padding-bottom: 2rem;
+}
+
+.rejoindre-un-groupe-page .container-fluid {
+    background: #000;
+}
+
+.rejoindre-un-groupe-page .container {
+    background: #000;
 }
 
 /* Bannière principale */
@@ -98,6 +107,18 @@
 .btn-favorite-group:hover {
     background: #6a1fa8;
     transform: translateY(-2px);
+}
+
+.btn-favorite-group .heart-path {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    transition: fill 0.3s ease;
+}
+
+.btn-favorite-group.active .heart-path {
+    fill: white;
+    stroke: white;
 }
 
 /* Sections description et critères */

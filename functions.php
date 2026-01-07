@@ -50,6 +50,7 @@ function enqueue_rejoindre_groupe_assets()
 {
     if (is_page_template('template-rejoindreungroupe.php')) {
         wp_enqueue_style('rejoindre-groupe-style', get_template_directory_uri() . '/assets/css/rejoindre-groupe.css', array('theme-style'), '1.0.0');
+        wp_enqueue_script('rejoindre-groupe-script', get_template_directory_uri() . '/assets/js/rejoindre-groupe.js', array(), '1.0.0', true);
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_rejoindre_groupe_assets');
@@ -72,6 +73,33 @@ function enqueue_events_favorites_assets()
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_events_favorites_assets');
+
+// Enqueue securite assets
+function enqueue_securite_assets()
+{
+    if (is_page_template('template-securite.php')) {
+        wp_enqueue_style('securite-style', get_template_directory_uri() . '/assets/css/securite.css', array('theme-style'), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_securite_assets');
+
+// Enqueue contact assets
+function enqueue_contact_assets()
+{
+    if (is_page_template('template-contact.php')) {
+        wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css', array('theme-style'), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_contact_assets');
+
+// Enqueue mention assets
+function enqueue_mention_assets()
+{
+    if (is_page_template('template-mention.php')) {
+        wp_enqueue_style('mention-style', get_template_directory_uri() . '/assets/css/mention.css', array('theme-style'), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_mention_assets');
 
 // Handle questionnaire submission
 function handle_questionnaire_submission()

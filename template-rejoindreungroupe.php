@@ -9,7 +9,7 @@ get_header();
     <div class="container-fluid px-0">
         <!-- Bannière principale avec 3 personnes -->
         <div class="group-banner-section">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/image/banner-placeholder.jpg' ); ?>" alt="Groupe" class="group-banner-image" />
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/image/POPX.jpeg' ); ?>" alt="Groupe" class="group-banner-image" />
         </div>
 
         <!-- Section profil et actions -->
@@ -17,7 +17,7 @@ get_header();
             <div class="row align-items-center mb-4">
                 <div class="col-auto">
                     <div class="group-profile-picture">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/image/profile-placeholder.jpg' ); ?>" alt="Awa Diabaté" class="profile-img" />
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/image/pexels-kebs-visuals-742415-3992656.jpg' ); ?>" alt="Awa Diabaté" class="profile-img" />
                     </div>
                 </div>
                 <div class="col">
@@ -26,9 +26,9 @@ get_header();
                 </div>
                 <div class="col-auto d-flex gap-2">
                     <button class="btn btn-join-group">Rejoindre</button>
-                    <button class="btn btn-favorite-group">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white"/>
+                    <button class="btn btn-favorite-group" type="button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="heart-icon">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="white" stroke-width="2" class="heart-path"/>
                         </svg>
                     </button>
                 </div>

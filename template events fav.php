@@ -7,6 +7,13 @@ get_header();
 
 <div class="events-favorites-page">
     <div class="container py-4">
+        <!-- Flèche de retour -->
+        <a href="<?php echo esc_url(get_profil_page_url()); ?>" class="events-back-btn" aria-label="Retour au profil">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        
         <!-- Titre -->
         <h1 class="events-favorites-title">
             Mes <span class="title-highlight">événements</span> favoris
