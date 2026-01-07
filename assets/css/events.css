@@ -236,6 +236,7 @@ body .events-hero ~ * {
     scrollbar-width: none;
     -ms-overflow-style: none;
     flex-wrap: nowrap;
+    display: flex;
 }
 
 .events-carousel::-webkit-scrollbar {
@@ -244,7 +245,9 @@ body .events-hero ~ * {
 
 .events-carousel .row {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
+    display: flex;
+    margin: 0;
 }
 
 .events-carousel .col-lg-3,
@@ -253,6 +256,8 @@ body .events-hero ~ * {
     flex: 0 0 auto;
     width: auto;
     max-width: none;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 
 .event-card {

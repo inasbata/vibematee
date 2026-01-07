@@ -4,11 +4,10 @@
  */
 get_header();
 ?>
-
 <!-- Header visuel Events -->
 <section class="events-hero">
     <div class="hero-image-wrapper">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/image/events-header.jpg.png" alt="Bannière des événements" class="hero-image">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/image/Banière du dessus.jpeg" alt="Bannière du dessus" class="hero-image">
         <div class="hero-logo">
             <img src="<?php echo get_template_directory_uri(); ?>/images/image/logoblanc-vibemate.svg" alt="VibeMate Logo" class="hero-logo-img">
         </div>
